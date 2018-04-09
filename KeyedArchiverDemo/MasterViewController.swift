@@ -90,6 +90,19 @@ class MasterViewController: UITableViewController {
         }
     }
 
+    // MARK: - Save Data
+    
+    var filePath: String? {
+        do {
+            let fileManager = FileManager.default
+            let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let savePath = documentDirectory.appendingPathComponent("timestamps.bin")
+            return savePath.path
+        } catch {
+            print("Error getting path")
+            return nil
+        }
+    }
 
 }
 
