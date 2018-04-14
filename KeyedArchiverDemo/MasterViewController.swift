@@ -13,7 +13,21 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
 
-
+    
+    // MARK: - Save Data
+    
+    var filePath: String? {
+        do {
+            let fileManager = FileManager.default
+            let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let savePath = documentDirectory.appendingPathComponent("timestamps.bin")
+            return savePath.path
+        } catch {
+            print("Error getting path")
+            return nil
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,11 +39,23 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        // MARK - Get the FileManager/Documents Path
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsURL = paths[0] as NSURL
+        print(documentsURL)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+        
+        if let path = filePath {
+            if let array = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? [AnyObject] {
+                objects = array
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +66,12 @@ class MasterViewController: UITableViewController {
     @objc
     func insertNewObject(_ sender: Any) {
         objects.insert(NSDate(), at: 0)
+        
+        //MARK: - Link to timestamp.bin File
+        if let path = filePath {
+            NSKeyedArchiver.archiveRootObject(objects, toFile: path)
+        }
+        
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
@@ -90,19 +122,6 @@ class MasterViewController: UITableViewController {
         }
     }
 
-    // MARK: - Save Data
-    
-    var filePath: String? {
-        do {
-            let fileManager = FileManager.default
-            let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-            let savePath = documentDirectory.appendingPathComponent("timestamps.bin")
-            return savePath.path
-        } catch {
-            print("Error getting path")
-            return nil
-        }
-    }
 
 }
 
