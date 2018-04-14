@@ -13,9 +13,13 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
 
     // MARK - Change objects array from Any to person type
-//    var objects = [Any]()
+    //var objects = [Any]()
     var objects = [Person]()
 
+    // MARK - Custom Variables
+    let firstNames = ["Jane", "John", "Stephen", "Stacy", "Taylor", "Alex", "Eren"]
+    let lastNames = ["White", "Black", "Fox", "Jones", "King", "McQueen", "Yeager"]
+    let ages = [25, 26, 20, 30, 27, 28, 23]
     
     // MARK: - Save Data
     
