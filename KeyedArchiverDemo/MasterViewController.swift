@@ -56,9 +56,16 @@ class MasterViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+ 
+        // MARK - Change Path from accepting anyobject to Person
+//        if let path = filePath {
+//            if let array = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? [AnyObject] {
+//                objects = array
+//            }
+//        }
         
         if let path = filePath {
-            if let array = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? [AnyObject] {
+            if let array = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? [Person] {
                 objects = array
             }
         }
