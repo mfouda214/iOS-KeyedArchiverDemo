@@ -33,10 +33,19 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    var detailItem: NSDate? {
+    // MARK - Change detailItem type to Person
+    
+//    var detailItem: NSDate? {
+//        didSet {
+//            // Update the view.
+//            configureView()
+//        }
+//    }
+    
+    var detailItem: Person? {
         didSet {
             // Update the view.
-            configureView()
+            self.configureView()
         }
     }
 
