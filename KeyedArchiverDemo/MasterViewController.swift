@@ -27,7 +27,10 @@ class MasterViewController: UITableViewController {
         do {
             let fileManager = FileManager.default
             let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-            let savePath = documentDirectory.appendingPathComponent("timestamps.bin")
+            
+            // MARK - change savePath to people.bin
+//            let savePath = documentDirectory.appendingPathComponent("timestamps.bin")
+            let savePath = documentDirectory.appendingPathComponent("people.bin")
             return savePath.path
         } catch {
             print("Error getting path")
