@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK - Change detailItem type to Person
+    // MARK - q
     
 //    var detailItem: NSDate? {
 //        didSet {
