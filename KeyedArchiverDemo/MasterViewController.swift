@@ -11,7 +11,10 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [Any]()
+
+    // MARK - Change objects array from Any to person type
+//    var objects = [Any]()
+    var objects = [Person]()
 
     
     // MARK: - Save Data
