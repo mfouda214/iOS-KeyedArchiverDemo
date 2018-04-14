@@ -58,6 +58,7 @@ class MasterViewController: UITableViewController {
         super.viewWillAppear(animated)
  
         // MARK - Change Path from accepting anyobject to Person
+        
 //        if let path = filePath {
 //            if let array = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? [AnyObject] {
 //                objects = array
@@ -77,17 +78,33 @@ class MasterViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    //MARK - Change insertNewObject to Random object from custome variables
+    
+//    @objc
+//    func insertNewObject(_ sender: Any) {
+//        objects.insert(NSDate(), at: 0)
+//
+//        //MARK: - Link to timestamp.bin File
+//        if let path = filePath {
+//            NSKeyedArchiver.archiveRootObject(objects, toFile: path)
+//        }
+//
+//        let indexPath = IndexPath(row: 0, section: 0)
+//        tableView.insertRows(at: [indexPath], with: .automatic)
+//    }
+    
     @objc
     func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
+        let randomFirstName = firstNames[Int(arc4random_uniform(UInt32(firstNames.count)))]
+        let randomLastName = lastNames[Int(arc4random_uniform(UInt32(lastNames.count)))]
+        let randomAge = ages[Int(arc4random_uniform(UInt32(ages.count)))]
         
-        //MARK: - Link to timestamp.bin File
+        objects.insert(Person(firstName: randomFirstName, lastName: randomLastName, age: randomAge), at: 0)
         if let path = filePath {
             NSKeyedArchiver.archiveRootObject(objects, toFile: path)
         }
-        
         let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        self.tableView.insertRows(at: [indexPath], with: .automatic)
     }
 
     // MARK: - Segues
