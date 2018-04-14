@@ -13,6 +13,7 @@
 		D452EE07207BCDC50038F06E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D452EE05207BCDC50038F06E /* Main.storyboard */; };
 		D452EE09207BCDC50038F06E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D452EE08207BCDC50038F06E /* Assets.xcassets */; };
 		D452EE0C207BCDC50038F06E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D452EE0A207BCDC50038F06E /* LaunchScreen.storyboard */; };
+		D47B538F2082477100880663 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47B538E2082477100880663 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D452EE08207BCDC50038F06E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D452EE0B207BCDC50038F06E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D452EE0D207BCDC50038F06E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D47B538E2082477100880663 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				D452EDFF207BCDC50038F06E /* AppDelegate.swift */,
 				D452EE01207BCDC50038F06E /* MasterViewController.swift */,
+				D47B538E2082477100880663 /* Person.swift */,
 				D452EE03207BCDC50038F06E /* DetailViewController.swift */,
 				D452EE05207BCDC50038F06E /* Main.storyboard */,
 				D452EE08207BCDC50038F06E /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 			files = (
 				D452EE04207BCDC50038F06E /* DetailViewController.swift in Sources */,
 				D452EE02207BCDC50038F06E /* MasterViewController.swift in Sources */,
+				D47B538F2082477100880663 /* Person.swift in Sources */,
 				D452EE00207BCDC50038F06E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
